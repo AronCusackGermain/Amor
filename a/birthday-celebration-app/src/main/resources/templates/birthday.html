@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Celebration</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Birthday Celebration!</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Guest List</h2>
+            <ul id="guest-list">
+                <!-- Guest names will be dynamically inserted here -->
+            </ul>
+        </section>
+        <section>
+            <h2>Leave a Message</h2>
+            <form id="guest-form" action="/guests" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Birthday Celebration. All rights reserved.</p>
+    </footer>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
