@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Mi Amor 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(45deg, #ffeef7, #e6f3ff, #fff2e6);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease-in-out infinite;
+            color: #5a4f7a;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            color: #5a4f7a;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            background: linear-gradient(45deg, #ff69b4, #87ceeb);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 100px 20px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero {
+            background: radial-gradient(circle, rgba(255,182,193,0.3) 0%, rgba(173,216,230,0.3) 100%);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: #ff69b4;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .cinnamoroll-char {
+            font-size: 8rem;
+            animation: wiggle 3s ease-in-out infinite;
+            display: block;
+            margin: 20px 0;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            color: #ff69b4;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .card h2:after {
+            content: '✨';
+            position: absolute;
+            right: -40px;
+            top: 0;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .love-reasons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .reason {
+            background: linear-gradient(135deg, #ffb6c1, #e6e6fa);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .reason:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .plan-item {
+            background: linear-gradient(135deg, #87ceeb, #dda0dd);
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-item:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .plan-item:hover:before {
+            animation: shine 0.6s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+        }
+
+        .plan-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .memories-section {
+            background: rgba(255, 182, 193, 0.1);
+        }
+
+        .memory-form {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #5a4f7a;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffb6c1;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #ff69b4;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff69b4, #87ceeb);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .memory-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .memory-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .memory-content {
+            padding: 20px;
+        }
+
+        .daily-love {
+            background: linear-gradient(135deg, #ff69b4, #dda0dd);
+            color: white;
+        }
+
+        .love-quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            margin: 30px 0;
+            padding: 30px;
+            background: rgba(240, 105, 206, 0.2);
+            border-radius: 20px;
+            border-left: 5px solid white;
+        }
+
+        .delete-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .cinnamoroll-char { font-size: 5rem; }
+            .nav-content { flex-wrap: wrap; gap: 15px; }
+            .nav-item { padding: 8px 15px; font-size: 14px; }
+            .card { padding: 25px; margin: 20px 0; }
+            .card h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="hearts"></div>
+    
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#inicio" class="nav-item">🏠 Inicio</a>
+            <a href="#maravillosa" class="nav-item">✨ Eres Maravillosa</a>
+            <a href="#amor" class="nav-item">💕 Mi Amor por Ti</a>
+            <a href="#planes" class="nav-item">🌟 Nuestros Planes</a>
+            <a href="#recuerdos" class="nav-item">📸 Recuerdos</a>
+            <a href="#frase-diaria" class="nav-item">💝 Frase del Día</a>
+        </div>
+    </nav>
+
+    <section id="inicio" class="section hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="cinnamoroll-char">🐰☁️</div>
+                <h1>¡Feliz Cumpleaños Mi Amor!</h1>
+                <p style="font-size: 1.5rem; margin: 20px 0;">
+                    En tu día especial, quiero recordarte lo increíble que eres
+                    y cuánto significas para mí. Esta página está llena de amor, 
+                    just like Cinnamoroll llena nuestras vidas de dulzura. 💕
+                </p>
+                <div style="font-size: 3rem; margin: 30px 0;">
+                    🎂🎉🎈✨💖
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="maravillosa" class="section">
+        <div class="container">
+            <div class="card">
+                <h2>Eres Absolutamente Maravillosa</h2>
+                <div class="love-reasons">
+                    <div class="reason">
+                        <h3>🌟 Tu Sonrisa</h3>
+                        <p>Ilumina mis días más oscuros y hace que todo valga la pena. Es como el sol que sale cada mañana, llenando mi mundo de luz y esperanza.</p>
+                    </div>
+                    <div class="reason">
+                        <h3>💫 Tu Bondad</h3>
+                        <p>Tienes el corazón más puro que conozco. Tu compasión y cuidado hacia los demás me inspiran a ser mejor persona cada día.</p>
+                    </div>
+                    <div class="reason">
+                        <h3>🦋 Tu Fortaleza</h3>
+                        <p>Eres la mujer más fuerte que conozco. Enfrentas cada desafío con gracia y determinación, y siempre encuentras la manera de salir adelante.</p>
+                    </div>
+                    <div class="reason">
+                        <h3>🌈 Tu Creatividad</h3>
+                        <p>Ves belleza donde otros no la ven. Tu imaginación y creatividad transforman lo ordinario en extraordinario.</p>
+                    </div>
+                    <div class="reason">
+                        <h3>💎 Tu Autenticidad</h3>
+                        <p>Eres genuina en cada momento. Tu autenticidad es refrescante en un mundo que a veces se siente artificial.</p>
+                    </div>
+                    <div class="reason">
+                        <h3>🌺 Tu Amor</h3>
+                        <p>La forma en que amas es única y especial. Me haces sentir como la persona más afortunada del mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="amor" class="section">
+        <div class="container">
+            <div class="card">
+                <h2>Cuánto Te Amo</h2>
+                <div style="font-size: 1.3rem; line-height: 1.8; text-align: left;">
+                    <p style="margin-bottom: 25px;">
+                        🌟 <strong>Te amo</strong> más de lo que las palabras pueden expresar. Eres mi sol, mi luna, mis estrellas, y todo lo que está en el medio.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        💕 <strong>Te amo</strong> en las mañanas cuando abres los ojos y me regalas tu primera sonrisa del día.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        🌙 <strong>Te amo</strong> en las noches cuando nos quedamos despiertos hablando de nuestros sueños y planes futuros.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        🌈 <strong>Te amo</strong> en los momentos difíciles, cuando somos el apoyo del otro y enfrentamos todo juntos.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        ✨ <strong>Te amo</strong> por quien eres ahora y por quien te estás convirtiendo cada día.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        💖 <strong>Te amo</strong> con todo mi corazón, alma y ser. Eres mi persona favorita, mi mejor amiga, mi compañera de vida.
+                    </p>
+                    <div style="text-align: center; font-size: 2rem; margin: 40px 0; color: #ff69b4;">
+                        Te amo infinitamente y para siempre 💕∞
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="planes" class="section">
+        <div class="container">
+            <div class="card">
+                <h2>Nuestros Hermosos Planes a Futuro</h2>
+                <div class="plans-grid">
+                    <div class="plan-item">
+                        🏠 <strong>Nuestra Casa</strong><br>
+                        Construir nuestro hogar donde cada rincón esté lleno de amor y recuerdos hermosos
+                    </div>
+                    <div class="plan-item">
+                        💍 <strong>Casarnos</strong><br>
+                        El día más especial donde prometemos amarnos para toda la vida
+                    </div>
+                    <div class="plan-item">
+                        👨‍👩‍👧‍👦 <strong>Formar una Familia</strong><br>
+                        Tener pequeños que llenen nuestro hogar de risas y aventuras
+                    </div>
+                    <div class="plan-item">
+                        🌱 <strong>Crecer Juntos</strong><br>
+                        Seguir apoyándonos mutuamente mientras perseguimos nuestros sueños
+                    </div>
+                    <div class="plan-item">
+                        ✈️ <strong>Viajar</strong><br>
+                        Explorar el mundo juntos y crear recuerdos en cada destino
+                    </div>
+                    <div class="plan-item">
+                        🦋 <strong>Ser Independientes</strong><br>
+                        Lograr la estabilidad que nos permita vivir la vida que soñamos
+                    </div>
+                </div>
+                <div style="margin-top: 40px; font-size: 1.4rem; color: #5a4f7a;">
+                    <p>Cada sueño que tenemos juntos se hace más real cada día. 
+                    No puedo esperar a vivir cada uno de estos momentos contigo. 💕</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recuerdos" class="section memories-section">
+        <div class="container">
+            <div class="card">
+                <h2>Nuestros Recuerdos Especiales</h2>
+                
+                <div class="memory-form">
+                    <h3 style="color: #ff69b4; margin-bottom: 20px;">💝 Agregar Nuevo Recuerdo</h3>
+                    <form id="memoryForm">
+                        <div class="form-group">
+                            <label for="memoryTitle">Título del Recuerdo:</label>
+                            <input type="text" id="memoryTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="memoryDate">Fecha:</label>
+                            <input type="date" id="memoryDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="memoryDescription">Descripción:</label>
+                            <textarea id="memoryDescription" rows="4" required placeholder="Cuéntanos sobre este momento especial..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="memoryImage">Imagen:</label>
+                            <input type="file" id="memoryImage" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn">✨ Guardar Recuerdo</button>
+                    </form>
+                </div>
+
+                <div id="memoriesGrid" class="memories-grid">
+                    <!-- Los recuerdos aparecerán aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="frase-diaria" class="section daily-love">
+        <div class="container">
+            <div class="card" style="background: rgba(255, 255, 255, 0.95);">
+                <h2 style="color: #ff69b4;">💝 Tu Frase de Amor del Día</h2>
+                <div class="love-quote" id="dailyQuote">
+                    <!-- La frase diaria aparecerá aquí -->
+                </div>
+                <p style="color: #5a4f7a; font-size: 1.1rem;">
+                    Cada día es una nueva oportunidad para recordarte cuánto te amo 💕
+                </p>
+                <button onclick="generateNewQuote()" class="btn" style="margin-top: 20px;">
+                    ✨ Nueva Frase de Amor
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Crear corazones flotantes
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = Math.random() > 0.5 ? '💕' : '💖';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 8000);
+            }, 800);
+        }
+
+        // Navegación suave
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(item.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Base de datos de recuerdos (almacenada en memoria)
+        let memoriesDB = [
+            {
+                id: 1,
+                title: "Nuestro Primer Encuentro",
+                date: "2023-03-15",
+                description: "El día que cambió nuestras vidas para siempre. Desde ese momento supe que eras especial.",
+                image: null
+            },
+            {
+                id: 2,
+                title: "Primera Cita",
+                date: "2023-03-22",
+                description: "Caminamos por horas hablando de todo y nada. Fue cuando me di cuenta de que quería pasar mi vida conociendo cada parte de ti.",
+                image: null
+            }
+        ];
+
+        // Función para mostrar recuerdos
+        function displayMemories() {
+            const grid = document.getElementById('memoriesGrid');
+            grid.innerHTML = '';
+            
+            memoriesDB.forEach(memory => {
+                const memoryCard = document.createElement('div');
+                memoryCard.className = 'memory-card';
+                
+                memoryCard.innerHTML = `
+                    ${memory.image ? `<img src="${memory.image}" alt="${memory.title}" class="memory-image">` : 
+                    '<div class="memory-image" style="background: linear-gradient(45deg, #ffb6c1, #87ceeb); display: flex; align-items: center; justify-content: center; font-size: 3rem;">💕</div>'}
+                    <div class="memory-content">
+                        <h3 style="color: #ff69b4; margin-bottom: 10px;">${memory.title}</h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">${formatDate(memory.date)}</p>
+                        <p style="color: #5a4f7a;">${memory.description}</p>
+                        <button onclick="deleteMemory(${memory.id})" class="delete-btn">🗑️ Eliminar</button>
+                    </div>
+                `;
+                
+                grid.appendChild(memoryCard);
+            });
+        }
+
+        // Función para formatear fecha
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('es-ES', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
+
+        // Agregar nuevo recuerdo
+        document.getElementById('memoryForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const title = document.getElementById('memoryTitle').value;
+            const date = document.getElementById('memoryDate').value;
+            const description = document.getElementById('memoryDescription').value;
+            const imageFile = document.getElementById('memoryImage').files[0];
+            
+            const newMemory = {
+                id: Date.now(),
+                title,
+                date,
+                description,
+                image: null
+            };
+            
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    newMemory.image = e.target.result;
+                    memoriesDB.unshift(newMemory);
+                    displayMemories();
+                    document.getElementById('memoryForm').reset();
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                memoriesDB.unshift(newMemory);
+                displayMemories();
+                document.getElementById('memoryForm').reset();
+            }
+        });
+
+        // Eliminar recuerdo
+        function deleteMemory(id) {
+            if (confirm('¿Estás seguro de que quieres eliminar este recuerdo?')) {
+                memoriesDB = memoriesDB.filter(memory => memory.id !== id);
+                displayMemories();
+            }
+        }
+
+        // Frases de amor diarias
+        const loveQuotes = [
+            "Eres la razón por la que creo en el amor verdadero. 💕",
+            "Cada día contigo es una nueva aventura llena de amor. 🌟",
+            "Tu amor es mi lugar favorito en todo el universo. 🌌",
+            "Eres mi sueño hecho realidad y mi realidad favorita. ✨",
+            "Tu sonrisa es mi medicina favorita para cualquier día malo. 😊",
+            "Contigo, el amor no es solo un sentimiento, es un hogar. 🏠",
+            "Eres la poesía que mi corazón siempre quiso escribir. 📝",
+            "Tu amor hace que incluso los lunes se sientan como viernes. 🎉",
+            "Eres mi persona favorita en este mundo y en cualquier otro. 🌍",
+            "Tu amor es la música que hace bailar a mi alma. 🎵",
+            "Eres la respuesta a preguntas que ni sabía que tenía. 💫",
+            "Tu amor es mi superpoder favorito. 💪",
+            "Eres mi lugar seguro en este mundo tan loco. 🛡️",
+            "Tu amor es como Cinnamoroll: dulce, tierno y perfecto. 🐰",
+            "Eres la estrella más brillante en mi cielo. ⭐",
+            "Tu amor es mi combustible para conquistar el mundo. 🚀",
+            "Eres mi historia de amor favorita. 📚",
+            "Tu amor es mi definición de perfección. 💎",
+            "Eres la luz que guía todos mis caminos. 🌟",
+            "Tu amor es mi mayor tesoro. 💰"
+        ];
+
+        function generateDailyQuote() {
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+            const quoteIndex = dayOfYear % loveQuotes.length;
+            document.getElementById('dailyQuote').textContent = loveQuotes[quoteIndex];
+        }
+
+        function generateNewQuote() {
+            const randomQuote = loveQuotes[Math.floor(Math.random() * loveQuotes.length)];
+            document.getElementById('dailyQuote').textContent = randomQuote;
+        }
+
+        // Inicializar página
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingHearts();
+            displayMemories();
+            generateDailyQuote();
+        });
+    </script>
+</body>
+</html>
